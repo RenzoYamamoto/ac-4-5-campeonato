@@ -9,11 +9,10 @@ admin_bp = Blueprint(
 )
 
 
-@admin_bp.route('/admin')
+@admin_bp.route('/')
 def home():    
     return render_template(
-        'home.html',
-        equipes=dict(Equipe.listar())
+        'cadastro.html'
     )
 
 

@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template
-from classes import Equipe
+from flask import Blueprint, flash, redirect, render_template, request, session
+from classes import Equipe, Usuario
 
 website_bp = Blueprint(
     'website',
@@ -18,7 +18,20 @@ def home():
 
 @website_bp.route('/entrar', methods=['GET', 'POST'])
 def entrar():
-    return render_template('entrar.html')
+    if request.method == 'POST':
+        form = request.form
+        usuario = Usuario.autenticar(
+            form.get('email'),
+            form.get('senha')
+        )
+        if usuario:
+            
+            return redirect('/admin')
+        else:
+            flash('Email ou senha incorretos!')
+            return redirect('/entrar')
+    else:
+        return render_template('entrar.html')
 
 
 @website_bp.route('/detalhes')

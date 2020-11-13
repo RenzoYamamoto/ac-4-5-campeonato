@@ -14,6 +14,18 @@ class Usuario(object):
                     
         Usuario.__dados.append(usuario)
 
+    @classmethod
+    def autenticar(cls, email, senha):
+        usuario = Usuario.obter(email)
+        if usuario and usuario.senha == senha:
+            return usuario
+
+    @classmethod
+    def obter(cls, email):
+        for u in Usuario.__dados:
+            if u.email == email:
+                return u
+
 
 class Equipe(object):
     __dados = []
