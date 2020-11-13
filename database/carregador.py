@@ -9,7 +9,7 @@ def carregar_dados(base_dir):
         dados = json.load(json_arq)
         carregar_equipes(dados['equipe'])
         carregar_partidas(dados['partida'])
-        carregar_usuarios(dados['usuario'])
+        carregar_usuarios(dados['usuarios'])
 
 
 def carregar_equipes(equipes):

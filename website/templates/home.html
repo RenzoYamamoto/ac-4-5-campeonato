@@ -57,14 +57,15 @@
         </thead>
         <tbody>
           {% block conteudo %}
-          {% for d in context.parent %} 
+          
+          {% for equipe in equipes %} 
             <tr>
               <th scope="row">1</th>
-              <td>{{d.NOME}}</td>
-              <td>{{COR.VITORIA}}</td>
-              <td>{{COR.EMPATE}}</td>
-              <td>{{COR.DERROTA}}</td>
-              <td>{{COR.PONTO}}</td>
+              <td>{{equipe.nome}}</td>
+              <td>{{equipe.vitoria}}</td>
+              <td>{{equipe.empate}}</td>
+              <td>{{equipe.derrota}}</td>
+              <td>{{equipe.pontuacao}}</td>
             </tr>
           {% endfor %}
           {% endblock %}
