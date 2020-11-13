@@ -76,3 +76,12 @@ class Partida(object):
         partida = cls(equipe_casa, equipe_visita, gols_casa, gols_visita)
                     
         Partida.__dados.append(partida)
+
+    @classmethod
+    def listarPorTime(cls, sigla):
+        time = []
+        for p in Partida.__dados:
+            if p.equipe_casa.sigla == sigla or p.equipe_visita.sigla == sigla:
+                time.append(p)
+        return time
+        

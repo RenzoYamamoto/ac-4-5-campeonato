@@ -42,30 +42,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td><button type="button" class="btn btn-success">Alterar</button>
-    <button type="button" class="btn btn-danger">Remover</button></td>
-   
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td><button type="button" class="btn btn-success">Alterar</button>
-    <button type="button" class="btn btn-danger">Remover</button></td>
-
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td><button type="button" class="btn btn-success">Alterar</button>
-    <button type="button" class="btn btn-danger">Remover</button></td>
-
-    </tr>
+    {% block conteudo %}
+      {% for e in equipes %}
+        <tr>
+          <th scope="row">{{e.nome}}</th>
+          <td>{{e.sigla}}</td>
+          <td>{{e.local}}</td>
+          <td><button type="button" class="btn btn-success">Alterar</button>
+          <button type="button" class="btn btn-danger">Remover</button></td>   
+        </tr>
+        {% endfor %}
+    {% endblock %}
   </tbody>
 </table>
 

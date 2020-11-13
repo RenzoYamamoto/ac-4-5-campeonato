@@ -1,5 +1,5 @@
 from flask import Blueprint, flash, redirect, render_template, request, session
-from classes import Equipe, Usuario
+from classes import Equipe, Usuario, Partida
 
 website_bp = Blueprint(
     'website',
@@ -15,6 +15,12 @@ def home():
         equipes=Equipe.listar()
         )
 
+@website_bp.route('/detalhes/<equipe>')
+def detalhes(equipe):
+    return render_template(
+        'detalhes.html', 
+        partidas=Partida.listarPorTime(equipe), 
+        nome=Equipe.obter(equipe).nome)
 
 @website_bp.route('/entrar', methods=['GET', 'POST'])
 def entrar():
@@ -32,23 +38,3 @@ def entrar():
             return redirect('/entrar')
     else:
         return render_template('entrar.html')
-
-
-@website_bp.route('/detalhes')
-def detalhes():
-    return render_template('detalhes.html')
-
-@website_bp.route('/autenticar', methods=['GET', 'POST'])
-def autenticar():
-    form = request.form
-    usuario = Usuario.autenticar(
-        form.get('usuario'),
-        form.get('senha')
-    )
-    if usuario:
-        session['usuario'] = usuario.nome
-        session['data'] = datetime.now().__str__()
-        return redirect('/admin')
-    else:
-        flash('Usuário ou senha incorretos!')
-        return redirect('/entrar')

@@ -28,7 +28,7 @@
   </div>
 </nav>
 
-     <h1>Partidas jogadas pelo time #########</h1>
+     <h1>Partidas jogadas pelo time {{nome}}</h1>
 
     <table class="table table-striped">
   <thead>
@@ -44,30 +44,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>class= </td>
-      <td>Otto</td>
-      <td>X</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>X</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>X</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
+    {% block conteudo %}
+          
+      {% for partida in partidas %} 
+        <tr>
+          <th scope="row">1</th>
+          <td>{{partida.equipe_casa.nome}}</td>
+          <td>{{partida.gols_casa}}</td>
+          <td>X</td>
+          <td>{{partida.gols_visita}}</td>
+          <td>{{partida.equipe_visita.nome}}</td>
+        </tr>
+      {% endfor %}
+    {% endblock %}
   </tbody>
 </table>
 
