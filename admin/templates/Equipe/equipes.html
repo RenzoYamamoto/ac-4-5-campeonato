@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,8 +28,9 @@
   </div>
 </nav>
     
-    <button type="button" class="btn btn-secondary btn-lg">+ Adicionar Equipe</button>
-
+    <a href="/admin/equipes/criar">
+      <button type="button" class="btn btn-secondary btn-lg">+ Adicionar Equipe</button>
+    </a>
     <table class="table table-striped">
   <thead>
     <tr>
@@ -48,8 +49,14 @@
           <th scope="row">{{e.nome}}</th>
           <td>{{e.sigla}}</td>
           <td>{{e.local}}</td>
-          <td><button type="button" class="btn btn-success">Alterar</button>
-          <button type="button" class="btn btn-danger">Remover</button></td>   
+          <td>
+            <form method="GET" class="remover" action="/admin/equipes/alterar/{{e.sigla}}" style="display:inline-block;">
+              <button type="submit" class="btn btn-success">Alterar</button>
+            </form>
+            <form method="POST" class="remover" action="/admin/equipes/deletar/{{e.sigla}}" style="display:inline-block;">
+              <button type="submit" class="btn btn-danger">Remover</button>
+            </form>
+          </td>   
         </tr>
         {% endfor %}
     {% endblock %}

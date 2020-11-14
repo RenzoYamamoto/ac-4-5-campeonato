@@ -28,7 +28,8 @@
   </div>
 </nav>
 
-<button type="button" class="btn btn-secondary btn-lg">+ Adicionar Equipe</button>
+<a href="/admin/partidas/criar"><button type="button" class="btn btn-secondary btn-lg">+ Adicionar Partida</button></a>
+
 
      <h1>Partidas</h1>
 
@@ -48,45 +49,29 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">São Paulo</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>X</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td><button type="button" class="btn btn-success">Alterar</button>
-    <button type="button" class="btn btn-danger">Remover</button></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>X</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td><button type="button" class="btn btn-success">Alterar</button>
-    <button type="button" class="btn btn-danger">Remover</button></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>X</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td><button type="button" class="btn btn-success">Alterar</button>
-    <button type="button" class="btn btn-danger">Remover</button></td>
-    </tr>
+    {% block conteudo %}
+      {% for p in partidas %}
+        <tr>
+          <th>{{p.equipe_casa.nome}}</th>
+          <td>{{p.equipe_casa.sigla}}</td>
+          <td>{{p.equipe_casa.local}}</td>
+          <td>{{p.gols_casa}}</td>
+          <td>X</td>
+          <td>{{p.gols_visita}}</td>
+          <td>{{p.equipe_visita.local}}</td>
+          <td>{{p.equipe_visita.sigla}}</td>
+          <td>{{p.equipe_visita.nome}}</td>
+          <td>
+            <form method="GET" class="remover" action="/admin/partidas/alterar/{{p.idPartida}}" style="display:inline-block;">
+              <button type="submit" class="btn btn-success">Alterar</button>
+            </form>
+            <form method="POST" class="remover" action="/admin/partidas/deletar/{{p.idPartida}}" style="display:inline-block;">
+              <button type="submit" class="btn btn-danger">Remover</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    {% endblock %}
   </tbody>
 </table>
 

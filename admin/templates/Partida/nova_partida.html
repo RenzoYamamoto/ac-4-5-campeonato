@@ -30,26 +30,32 @@
 
      <h1> Nova Partida </h1>
 
-     <form>
+     <form method="POST">
+      <ul class="erros" {% if erros|length > 0 %}style="display: block;"{% endif %} >
+        {% for erro in erros %}
+            <li>{{ erro }}</li>
+        {% endfor %}
+      </ul>
   <div class="form-row">
     <div class="col-4">
-      <input type="text" class="form-control" placeholder='Time da Casa'>
+      <input type="text" class="form-control" placeholder='Time da Casa' name="timeCasa">
     </div>
     <div class="col-1">
-      <input type="text" class="form-control" placeholder="Placar">
+      <input type="text" class="form-control" placeholder="Placar"name="golsCasa">
     </div>
     <h1>X</h1>
     <div class="col-1">
-      <input type="text" class="form-control" placeholder="Placar">
+      <input type="text" class="form-control" placeholder="Placar"name="golsVisita">
     </div>
     <div class="col-4">
-      <input type="text" class="form-control" placeholder="Time Visitante">
+      <input type="text" class="form-control" placeholder="Time Visitante"name="timeVisita">
     </div>
   </div>
+  
+  <br><button type="submit" class="btn btn-success">Salvar</button>
+  <button type="reset" class="btn btn-danger">Limpar</button></br>
+  
 </form>
-
-    <button type="button" class="btn btn-success">Salvar</button>
-    <button type="button" class="btn btn-danger">Limpar</button>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
