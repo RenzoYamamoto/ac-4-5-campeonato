@@ -3,7 +3,7 @@
         {
             "nome":  "PALMEIRAS",
             "sigla":  "PAL",
-            "local":  "SÃ£o Paulo-SP"
+            "local":  "São Paulo-SP"
         }, {
             "nome":  "SPORT CLUB",
             "sigla":  "SPT",
@@ -11,11 +11,11 @@
         }, {
             "nome":  "SANTOS",
             "sigla":  "SAT",
-            "local":  "SÃ£o Paulo-SP"
+            "local":  "São Paulo-SP"
         }, {
             "nome":  "CORINTHIANS",
             "sigla":  "COR",
-            "local":  "SÃ£o Paulo-SP"
+            "local":  "São Paulo-SP"
         }, {
             "nome":  "VASCO",
             "sigla":  "VAS",

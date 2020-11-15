@@ -56,13 +56,15 @@
     {% block conteudo %}
           
       {% for partida in partidas %} 
-          {% if partida.equipe_casa.sigla > partida.gols_visita %} 
+          {% if (partida.gols_casa > partida.gols_visita and partida.equipe_casa.nome == nome)
+             or (partida.gols_casa < partida.gols_visita and partida.equipe_visita.nome == nome)  %} 
             <tr class="table-success">
           {% endif %}
           {% if partida.gols_casa==partida.gols_visita %} 
             <tr class="table-warning">
           {% endif %}
-          {% if partida.gols_casa<partida.gols_visita %} 
+          {% if (partida.gols_casa < partida.gols_visita and partida.equipe_casa.nome == nome)
+             or (partida.gols_casa > partida.gols_visita  and partida.equipe_visita.nome == nome)  %} 
             <tr class="table-danger">
           {% endif %}
           <th scope="row" class="counterCell"></th>

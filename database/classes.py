@@ -39,6 +39,7 @@ class Equipe(object):
         self.vitoria = 0
         self.empate = 0
         self.derrota = 0
+        self.jogos = 0
 
     def __str__(self):
         return f'{self.nome} ({self.sigla})'
@@ -59,6 +60,10 @@ class Equipe(object):
             if e.sigla.lower() == sigla.lower():
                 return e
     
+    @classmethod
+    def custom_sort(equipe):
+        return equipe.pontuacao
+
     @classmethod
     def listar(cls):
         return Equipe.__dados
@@ -98,6 +103,13 @@ class Equipe(object):
         if equipe:
             Equipe.__dados.remove(equipe)
 
+        partidas = Partida.listarPorTime(sigla)
+
+        for partida in partidas:
+            Partida.remover(partida.idPartida)
+
+        
+
 
 class Partida(object):
     __dados = []
@@ -119,10 +131,29 @@ class Partida(object):
         partida = cls(equipe_casa, equipe_visita, gols_casa, gols_visita)
     
         erros = Partida.__validar(partida, True)
-        if len(erros) == 0:
-            Partida.__dados.append(partida)
+        if len(erros) != 0:
+            return erros
+
+        Partida.__dados.append(partida)
+
+        if gols_casa > gols_visita:
+            equipe_casa.pontuacao += 3
+            equipe_casa.vitoria += 1
+            equipe_visita.derrota += 1            
+        elif gols_visita > gols_casa:
+            equipe_visita.pontuacao += 3
+            equipe_visita.vitoria += 1
+            equipe_casa.derrota += 1
+        else:
+            equipe_visita.pontuacao += 1
+            equipe_casa.pontuacao += 1
+            equipe_visita.empate += 1
+            equipe_casa.empate += 1
+        equipe_visita.jogos += 1
+        equipe_casa.jogos += 1
 
         return erros
+        
 
     @classmethod
     def listarPorTime(cls, sigla):

@@ -41,7 +41,11 @@
       </ul>
   <div class="form-row">
     <div class="col-4">
-      <input type="text" class="form-control" placeholder='Time da Casa' name="timeCasa">
+      <select name="timeCasa" id="cars">
+        {% for equipe in equipes %}
+        <option value="{{equipe.sigla}}">{{equipe.nome}}</option>
+        {% endfor %}
+      </select>      
     </div>
     <div class="col-1">
       <input type="text" class="form-control" placeholder="Placar"name="golsCasa">
@@ -51,7 +55,11 @@
       <input type="text" class="form-control" placeholder="Placar"name="golsVisita">
     </div>
     <div class="col-4">
-      <input type="text" class="form-control" placeholder="Time Visitante"name="timeVisita">
+      <select name="timeVisita" id="cars">
+        {% for equipe in equipes %}
+        <option value="{{equipe.sigla}}">{{equipe.nome}}</option>
+        {% endfor %}
+      </select>     
     </div>
   </div>
   
