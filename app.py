@@ -3,9 +3,12 @@ from flask import Flask
 from website.controllers import website_bp
 from admin.controllers import admin_bp
 from database.carregador import carregar_dados
+from database.classes import Usuario
 
 
 app = Flask(__name__)
+app.secret_key = "SECRETO"
+
 app.register_blueprint(website_bp)
 app.register_blueprint(admin_bp, url_prefix='/admin')
 

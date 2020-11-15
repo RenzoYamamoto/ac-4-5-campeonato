@@ -1,7 +1,7 @@
 import json
 import os
 
-from classes import Equipe, Partida, Usuario
+from database.classes import Equipe, Partida, Usuario
 
 
 def carregar_dados(base_dir):

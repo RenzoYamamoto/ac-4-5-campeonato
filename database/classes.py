@@ -1,12 +1,13 @@
 class Usuario(object):
+    
     __dados = []
 
-    def __init__(self, email='', senha=''):
+    def __init__(self, email, senha):
         self.email = email
         self.senha = senha
 
     def __str__(self):
-        return f'{self.email}'
+        return self.email
 
     @classmethod
     def criar(cls, email, senha):
@@ -16,9 +17,9 @@ class Usuario(object):
 
     @classmethod
     def autenticar(cls, email, senha):
-        usuario = Usuario.obter(email)
-        if usuario and usuario.senha == senha:
-            return usuario
+        email = Usuario.obter(email)
+        if email and email.senha == senha:
+            return email
 
     @classmethod
     def obter(cls, email):

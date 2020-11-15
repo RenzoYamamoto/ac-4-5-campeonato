@@ -9,8 +9,8 @@
             "sigla":  "SPT",
             "local":  "Recife - PE"
         }, {
-            "nome":  "SÃO PAULO",
-            "sigla":  "SAO",
+            "nome":  "SANTOS",
+            "sigla":  "SAT",
             "local":  "São Paulo-SP"
         }, {
             "nome":  "CORINTHIANS",
@@ -37,12 +37,12 @@
         },
         {
             "equipe_casa": "PAL",
-            "equipe_visita": "SAO",
+            "equipe_visita": "SAT",
             "gols_casa": 1,
             "gols_visita": 3
         },
         {
-            "equipe_casa": "SAO",
+            "equipe_casa": "SAT",
             "equipe_visita": "PAL",
             "gols_casa": 5,
             "gols_visita": 3
@@ -73,12 +73,12 @@
         },
         {
             "equipe_casa": "SPT",
-            "equipe_visita": "SAO",
+            "equipe_visita": "SAT",
             "gols_casa": 3,
             "gols_visita": 2
         },
         {
-            "equipe_casa": "SAO",
+            "equipe_casa": "SAT",
             "equipe_visita": "SPT",
             "gols_casa": 4,
             "gols_visita": 3
@@ -108,26 +108,26 @@
             "gols_visita": 0
         },
         {
-            "equipe_casa": "SAO",
+            "equipe_casa": "SAT",
             "equipe_visita": "COR",
             "gols_casa": 1,
             "gols_visita": 0
         },
         {
             "equipe_casa": "COR",
-            "equipe_visita": "SAO",
+            "equipe_visita": "SAT",
             "gols_casa": 2,
             "gols_visita": 1
         },
         {
-            "equipe_casa": "SAO",
+            "equipe_casa": "SAT",
             "equipe_visita": "VAS",
             "gols_casa": 3,
             "gols_visita": 1
         },
         {
             "equipe_casa": "VAS",
-            "equipe_visita": "SAO",
+            "equipe_visita": "SAT",
             "gols_casa": 0,
             "gols_visita": 3
         },
