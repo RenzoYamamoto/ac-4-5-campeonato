@@ -28,6 +28,7 @@ class Usuario(object):
                 return u
 
 
+
 class Equipe(object):
     __dados = []
 

@@ -19,13 +19,13 @@ def entrar():
     erros = []
     if request.method == "POST":
         form = request.form
-        user = Usuario.autenticar(
-            form.get('email'),
+        usuario = Usuario.autenticar(
+            form.get('usuario'),
             form.get('senha')
         )
 
-        if user:
-            session['email'] = user.email
+        if usuario:
+            session['usuario'] = usuario.email
             return redirect('/admin')
         else:
             erros.append('E-mail ou senha incorretos!')

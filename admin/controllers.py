@@ -12,7 +12,9 @@ admin_bp = Blueprint(
 
 @admin_bp.route('/')
 @login_required
-def home():    
+def home():  
+    if not session.get("usuario"):
+        return redirect('/entrar')  
     return render_template(
         'cadastro.html'
     )
@@ -20,21 +22,29 @@ def home():
 @admin_bp.route('/equipes')
 @login_required
 def equipes():
+    if not session.get("usuario"):
+        return redirect('/entrar') 
     return render_template('Equipe/equipes.html', equipes=Equipe.listar())
 
 @admin_bp.route('/partidas')
 @login_required
 def partidas():
+    if not session.get("usuario"):
+        return redirect('/entrar') 
     return render_template('Partida/partidas.html', partidas=Partida.listar())
 
 @admin_bp.route('/detalhes/<equipe>')
 @login_required
 def detalhes():
+    if not session.get("usuario"):
+        return redirect('/entrar') 
     return render_template('detalhes.html')
 
 @admin_bp.route('/equipes/criar', methods=['GET', 'POST'])
 @login_required
 def equipes_criar():
+    if not session.get("usuario"):
+        return redirect('/entrar') 
     equipe = {}
     erros = []
     
@@ -54,6 +64,8 @@ def equipes_criar():
 @admin_bp.route('/partidas/criar', methods=['GET', 'POST'])
 @login_required
 def partidas_criar():
+    if not session.get("usuario"):
+        return redirect('/entrar') 
     partida = {}
     erros = []
     
@@ -72,6 +84,8 @@ def partidas_criar():
 @admin_bp.route('/equipes/alterar/<equipe>', methods=['GET', 'POST'])
 @login_required
 def equipes_alterar(equipe):
+    if not session.get("usuario"):
+        return redirect('/entrar') 
     erros = []
 
     if request.method == "POST":
@@ -93,6 +107,8 @@ def equipes_alterar(equipe):
 @admin_bp.route('/partidas/alterar/<partida>', methods=['GET', 'POST'])
 @login_required
 def partidas_alterar(partida):
+    if not session.get("usuario"):
+        return redirect('/entrar') 
     erros = []
 
     if request.method == "POST":
@@ -115,11 +131,15 @@ def partidas_alterar(partida):
 @admin_bp.route('/equipes/deletar/<equipe>', methods=['GET', 'POST'])
 @login_required
 def equipes_remover(equipe):
+    if not session.get("usuario"):
+        return redirect('/entrar') 
     Equipe.remover(equipe)
     return redirect('/admin/equipes')
 
 @admin_bp.route('/partidas/deletar/<partida>', methods=['GET', 'POST'])
 @login_required
 def partidas_remover(partida):
+    if not session.get("usuario"):
+        return redirect('/entrar') 
     Partida.remover(partida)
     return redirect('/admin/partidas')
