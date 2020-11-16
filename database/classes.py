@@ -59,10 +59,12 @@ class Equipe(object):
         for e in Equipe.__dados:
             if e.sigla.lower() == sigla.lower():
                 return e
-    
-    @classmethod
-    def custom_sort(equipe):
+
+    def getPontuacao(equipe):
         return equipe.pontuacao
+
+    def ordenar():
+        Equipe.__dados.sort(key=Equipe.getPontuacao, reverse=True)
 
     @classmethod
     def listar(cls):
@@ -152,6 +154,7 @@ class Partida(object):
         equipe_visita.jogos += 1
         equipe_casa.jogos += 1
 
+        Equipe.ordenar()
         return erros
         
 
