@@ -13,8 +13,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <ul class="nav justify-content-center">
-      <a href="/admin/partidas/criar"><button type="button" class="btn btn-info ">+ Adicionar Partidas</button></a>
-      <a href="/admin/equipes"><button type="button" class="btn btn-warning ">Ver Equipes</button></a>
+      <a href="/admin/partidas/criar"><button type="button" class="btn btn-info ">+ Adicionar Partida</button></a>
+      <a href="/admin/equipes"><button type="button" class="btn btn-warning ">Ver Times</button></a>
     </ul>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -36,13 +36,13 @@
      <h1>Todas as Partidas</h1>
 
     <table class="table table-striped">
-  <thead>
+  <thead class="thead-dark">
     <tr>
-      <th scope="col">Time da casa</th>
+      <th scope="col">Time Casa</th>
       <th scope="col">Sigla</th>
       <th scope="col">Local</th>
       <th scope="col">Gols</th>
-      <th scope="col">X</th>
+      <th scope="col"></th>
       <th scope="col">Gols</th>
       <th scope="col">Local</th>
       <th scope="col">Sigla</th>
@@ -54,7 +54,7 @@
     {% block conteudo %}
       {% for p in partidas %}
         <tr>
-          <th>{{p.equipe_casa.nome}}</th>
+          <td>{{p.equipe_casa.nome}}</td>
           <td>{{p.equipe_casa.sigla}}</td>
           <td>{{p.equipe_casa.local}}</td>
           <td>{{p.gols_casa}}</td>
@@ -65,10 +65,10 @@
           <td>{{p.equipe_visita.nome}}</td>
           <td>
             <form method="GET" class="remover" action="/admin/partidas/alterar/{{p.idPartida}}" style="display:inline-block;">
-              <button type="submit" class="btn btn-success">Alterar</button>
+              <button type="submit" class="badge badge-pill badge-success">Alterar</button>
             </form>
             
-             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Remover</button>
+             <button type="button" class="badge badge-pill badge-danger" data-toggle="modal" data-target="#exampleModal">Remover</button>
 
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
