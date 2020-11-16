@@ -46,19 +46,21 @@
   {% block conteudo %}
     <div class="form-row">
       <div class="col-4">
-        <input type="text" class="form-control" placeholder="Equipe" value="{{equipe.nome}}" name="nome">
+        <input type="text" class="form-control" placeholder="Equipe" value="{{equipe.nome}}" name="nome" required>
       </div>
       <div class="col-1">
-        <input type="text" class="form-control" placeholder="Sigla" value="{{equipe.sigla}}" name="sigla">
+        <input type="text" class="form-control" maxlenght="3" placeholder="Sigla" value="{{equipe.sigla}}" name="sigla" required>
       </div>
       <div class="col-4">
-        <input type="text" class="form-control" placeholder="Local" value="{{equipe.local}}" name="local">
+        <input type="text" class="form-control" placeholder="Local" value="{{equipe.local}}" name="local" required>
       </div>
     </div>
   {% endblock %}
 
-  <button type="submit" class="btn btn-success">Salvar</button>
-  <button type="reset" class="btn btn-danger">Limpar</button>
+      <br><button type="submit" class="btn btn-success">Salvar</button>
+      <button type="reset" class="btn btn-danger">Limpar</button>
+      </br>
+
 </form>  
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
