@@ -125,7 +125,8 @@ def partidas_alterar(partida):
     return render_template(
         'Partida/alterar_partida.html',
         partida=Partida.obter(partida),
-        erros=erros
+        erros=erros,
+        equipes=Equipe.listar()
     )
 
 @admin_bp.route('/equipes/deletar/<equipe>', methods=['GET', 'POST'])

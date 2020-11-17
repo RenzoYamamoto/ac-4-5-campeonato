@@ -47,8 +47,13 @@
       </ul>
       {% block conteudo %}
       <div class="form-row">
-        <div class="col-2.5">
-          <input type="text" class="form-control" placeholder="Time da Casa" value="{{partida.equipe_casa.sigla}}" name="timeCasa" required/>
+        <div class="form-group col-md-2.5">
+          <select id="inputState" class="form-control" <select class="form-control" id="exampleFormControlSelect1" name="timeCasa" id="cars" required>
+            <option selected value="{{partida.equipe_casa.sigla}}">{{partida.equipe_casa.nome}}</option>
+              {% for equipe in equipes %}
+            <option value="{{equipe.sigla}}">{{equipe.nome}}</option>
+              {% endfor %}
+          </select>
         </div>
         <div class="col-1">
           <input type="number" class="form-control" placeholder="Placar" value="{{partida.gols_casa}}" maxlenght="2"  name="golCasa" required/>
@@ -57,8 +62,13 @@
         <div class="col-1">
           <input type="number" class="form-control" placeholder="Placar" value="{{partida.gols_visita}}" maxlenght="2"  name="golVisita" required/>
         </div>
-        <div class="col-2.5">
-          <input type="text" class="form-control" placeholder="Time Visitante" value="{{partida.equipe_visita.sigla}}" name="timeVisita" required/>
+        <div class="form-group col-md-2.5">
+          <select id="inputState" class="form-control" <select class="form-control" id="exampleFormControlSelect1" name="timeVisita" id="cars" required>
+            <option selected value="{{partida.equipe_visita.sigla}}">{{partida.equipe_visita.nome}}</option>
+              {% for equipe in equipes %}
+            <option value="{{equipe.sigla}}">{{equipe.nome}}</option>
+              {% endfor %}
+          </select>
         </div>
       </div>
       <button type="submit" class="btn btn-success">Salvar</button>
