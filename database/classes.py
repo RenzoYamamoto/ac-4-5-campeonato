@@ -195,13 +195,13 @@ class Partida(object):
     def __validar(cls, partida, alteracao=False):
         erros = []
         if not partida.equipe_casa:
-            erros.append('Equipe casa é obrigatório!')
+            erros.append('Time da Casa é obrigatório!')
 
         if not partida.equipe_visita:
-            erros.append('Equipe visita é obrigatório!')
+            erros.append('Time Visitante é obrigatório!')
 
         if not partida.gols_casa:
-            erros.append('Gols visita é obrigatório!')
+            erros.append('Gols casa é obrigatório!')
 
         if not partida.gols_visita:
             erros.append('Gols visita é obrigatório!')
